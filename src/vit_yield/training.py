@@ -9,12 +9,14 @@ import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader, random_split
 from torch import amp                                   # new AMP namespace ✔
 from tqdm.auto import tqdm
+from cnn_yield.resnet_regressor import CNNCfg, ResNetYieldRegressor
 import optuna
 
 from vit_yield.vit_regressor import ViTYieldRegressor, VitConfig
+from metrics import compute_metrics  # <-- central helper (RMSE, MAE, R²)
 
 # ──────────────────────────────────────────────────────────────
-#  Dataset + metrics
+#  Dataset
 # ──────────────────────────────────────────────────────────────
 class PatchDataset(Dataset):
     """Holds (X, y) where X is (N,C,H,W) or (N,T,C,H,W)."""
@@ -25,11 +27,6 @@ class PatchDataset(Dataset):
 
     def __len__(self) -> int: return len(self.X)
     def __getitem__(self, idx): return self.X[idx], self.y[idx]
-
-def compute_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> Dict[str, float]:
-    rmse = float(np.sqrt(((y_true - y_pred) ** 2).mean()))
-    mae  = float(np.abs(y_true - y_pred).mean())
-    return {"RMSE": rmse, "MAE": mae}
 
 # ──────────────────────────────────────────────────────────────
 #  Training loop
@@ -66,7 +63,7 @@ def train_model(
     model.to(dev)
     opt   = optim.AdamW(filter(lambda p: p.requires_grad, model.parameters()), lr=cfg.lr)
     sch   = optim.lr_scheduler.CosineAnnealingLR(opt, cfg.epochs)
-    scaler= amp.GradScaler(device=dev.type)          # new API ✔ :contentReference[oaicite:3]{index=3}
+    scaler= amp.GradScaler(device=dev.type)          # new API ✔
     loss_fn = nn.MSELoss()
 
     best_rmse, wait, best_state = float("inf"), cfg.patience, None
@@ -77,7 +74,7 @@ def train_model(
         for xb, yb in tqdm(tl, leave=False):
             xb, yb = xb.to(dev, non_blocking=True), yb.to(dev, non_blocking=True)
             opt.zero_grad(set_to_none=True)
-            with amp.autocast(device_type=dev.type):       # new API ✔ :contentReference[oaicite:4]{index=4}
+            with amp.autocast(device_type=dev.type):
                 loss = loss_fn(model(xb).squeeze(), yb)
             scaler.scale(loss).backward()
             if cfg.clip_grad:
@@ -89,12 +86,17 @@ def train_model(
         train_rmse = (running / len(train_ds)) ** 0.5
 
         # ── validate ────────────────────────────────────────
-        model.eval(); val_loss = 0.0
+        model.eval(); y_preds, y_true = [], []
         with torch.no_grad(), amp.autocast(device_type=dev.type):
             for xb, yb in vl:
                 pred = model(xb.to(dev)).squeeze().cpu()
-                val_loss += loss_fn(pred, yb).item() * xb.size(0)
-        val_rmse = (val_loss / len(val_ds)) ** 0.5
+                y_preds.append(pred.numpy())
+                y_true.append(yb.numpy())
+        y_pred_np = np.concatenate(y_preds)
+        y_true_np = np.concatenate(y_true)
+        val_metrics = compute_metrics(y_true_np, y_pred_np)
+        val_rmse = val_metrics["rmse"]
+
         print(f"Ep {ep:03d} ┊ train {train_rmse:.3f} ┊ val {val_rmse:.3f}")
 
         # ── early-stopping logic ────────────────────────────
@@ -107,7 +109,7 @@ def train_model(
                 print("Early-stopping triggered."); break
 
     model.load_state_dict(best_state)
-    return model, {"RMSE": best_rmse}
+    return model, val_metrics  # returns RMSE, MAE, R²
 
 # ──────────────────────────────────────────────────────────────
 #  Optuna tuning
@@ -142,10 +144,51 @@ def tune_hyperparams(
             cfg=cfg_train,
             device=device,
         )
-        trial.report(metrics["RMSE"], step=cfg_train.epochs)
-        return metrics["RMSE"]
+        trial.report(metrics["rmse"], step=cfg_train.epochs)
+        return metrics["rmse"]
 
     study = optuna.create_study(direction="minimize",
                                 pruner=optuna.pruners.MedianPruner())
     study.optimize(objective, n_trials=n_trials, show_progress_bar=True)
-    return study
+    return study.best_trial
+
+
+#Hyper parameter tuning for ResNet model
+def tune_resnet_hyperparams(
+    X: np.ndarray,
+    y: np.ndarray,
+    n_trials: int = 20,
+    device:   str = "cuda",
+) -> optuna.Study:
+    """Optuna hyper-parameter tuning for ResNet model."""
+    
+    def objective(trial: optuna.Trial):
+        cfg_cnn = CNNCfg(
+            lstm=True,
+            lstm_hidden=trial.suggest_int("lstm_hidden", 64, 256),
+            lstm_layers=trial.suggest_int("lstm_layers", 1, 3),
+        )
+        cfg_train = TrainCfg(
+            epochs   = trial.suggest_int("epochs", 20, 80),
+            lr       = trial.suggest_float("lr", 5e-5, 5e-3, log=True),
+            batch    = 32,
+            patience = 6,
+        )
+
+        model = ResNetYieldRegressor(cfg_cnn)
+        # simple hold-out split (80/20)
+        n = len(X); split = int(0.8 * n)
+        mdl, metrics = train_model(
+            model,
+            X[:split], y[:split],
+            X[split:], y[split:],
+            cfg=cfg_train,
+            device=device,
+        )
+        trial.report(metrics["rmse"], step=cfg_train.epochs)
+        return metrics["rmse"]
+
+    study = optuna.create_study(direction="minimize",
+                                pruner=optuna.pruners.MedianPruner())
+    study.optimize(objective, n_trials=n_trials, show_progress_bar=True)
+    return study.best_trial

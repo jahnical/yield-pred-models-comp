@@ -6,7 +6,7 @@ Usage examples
 --------------
 ➜ python main.py vit
 ➜ python main.py vit_lstm --tune
-➜ python main.py xgboost --csv data/field_images.csv
+➜ python main.py xgb --csv data/field_images.csv
 """
 from __future__ import annotations
 # ───────────────── standard lib ─────────────────
@@ -15,13 +15,19 @@ from   pathlib     import Path
 import argparse, sys, textwrap, logging
 # ───────────────── third-party ──────────────────
 import numpy as np, pandas as pd
+import xgboost as xgb
+import torch
 # project imports
 from data_util          import get_data_splits, compute_metrics
-from vit_yield.training import train_model, tune_hyperparams
+from vit_yield.training import train_model, tune_hyperparams, tune_resnet_hyperparams
 from vit_yield.vit_regressor import ViTYieldRegressor, VitConfig
 from cnn_yield.resnet_regressor import ResNetYieldRegressor, CNNCfg
-from tabular            import train_xgboost, tune_xgboost
-from linear_regression  import train_linear_regression, tune_linear_regression
+from xgb_utils import train_xgb, tune_xgb_optuna
+from linear_utils import train_linear, tune_linear
+
+# Set random seed for reproducibility
+np.random.seed(42)
+torch.manual_seed(42)
 
 # ─────────────────────────────────────────────────────────────
 # 1│ Dataclass-based runtime configuration
@@ -30,8 +36,10 @@ from linear_regression  import train_linear_regression, tune_linear_regression
 class CLIConfig:
     model:        str
     tune:         bool = False
-    csv:          Path = Path("/home/matthew/Documents/yield/imagery/Yield_GEE_S2_ByField/field_images.csv")
-    data_root:    Path = Path("/home/matthew/Documents/yield/imagery/Yield_GEE_S2_ByField/")
+    csv:          Path = Path("/home/matthew/Projects/comparative-yield-models/Yield_GEE_S2_ByField/field_images_grouped.csv")
+    data_root:    Path = Path("/home/matthew/Projects/comparative-yield-models/")
+    temp_csv:     Path = Path("/home/matthew/Projects/comparative-yield-models/Yield_GEE_TEMP_ByField/field_temps.csv")
+    soil_root:  Path = Path("/home/matthew/Projects/comparative-yield-models/Yield_GEE_SoilOrg/")
 
 # ─────────────────────────────────────────────────────────────
 # 2│ Argument-parser that builds CLIConfig
@@ -48,7 +56,7 @@ def parse_args() -> CLIConfig:
     )
     parser.add_argument(
         "model",
-        choices=["vit", "vit_lstm", "resnet", "resnet_lstm", "xgboost", "linear"],
+        choices=["vit", "vit_lstm", "resnet", "resnet_lstm", "xgb", "linear"],
         help="Model/experiment to run",
     )
     parser.add_argument("--tune", action="store_true", help="Enable Optuna hyper-parameter search")
@@ -75,7 +83,7 @@ def build_and_train(cfg: CLIConfig,
         vit_cfg = VitConfig(lstm=cfg.model == "vit_lstm")
         if cfg.tune and cfg.model == "vit_lstm":
             best = tune_hyperparams(X_tr, y_tr, 20)
-            vit_cfg = VitConfig(**best.params)      # Optuna -> dataclass
+            vit_cfg = VitConfig(lstm_hidden=best.params['hidden'], lstm_layers=best.params['layers'], lstm=True)      # Optuna -> dataclass
         model = ViTYieldRegressor(vit_cfg)
         model, metrics = train_model(model, X_tr, y_tr, X_va, y_va)[0:2]
 
@@ -83,20 +91,23 @@ def build_and_train(cfg: CLIConfig,
     elif cfg.model in {"resnet", "resnet_lstm"}:
         cnn_cfg = CNNCfg(lstm=cfg.model == "resnet_lstm")
         if cfg.tune and cfg.model == "resnet_lstm":
-            best = tune_hyperparams(X_tr, y_tr, 20)
-            cnn_cfg = CNNCfg(**best.params)
+            best = tune_resnet_hyperparams(X_tr, y_tr, 20)
+            cnn_cfg = CNNCfg(lstm_hidden=best.params["lstm_hidden"],
+                             lstm_layers=best.params["lstm_layers"], lstm=True)  # Optuna -> dataclass
         model = ResNetYieldRegressor(cnn_cfg)
         model, metrics = train_model(model, X_tr, y_tr, X_va, y_va)[0:2]
 
-    # ---------- XGBoost ----------
-    elif cfg.model == "xgboost":
-        best = tune_xgboost(X_tr, y_tr) if cfg.tune else {}
-        model, _, metrics = train_xgboost(X_tr, y_tr, X_va, y_va, param_grid=best)
+    # ---------- xgb ----------
+    elif cfg.model == "xgb":
+        best = tune_xgb_optuna(X_tr, y_tr) if cfg.tune else {}
+        print(f"Best params: {best}")  # debug info
+        model, metrics = train_xgb(X_tr, y_tr, X_va, y_va, params=best)
 
     # ---------- Linear regression ----------
     elif cfg.model == "linear":
-        best = tune_linear_regression(X_tr, y_tr) if cfg.tune else {}
-        model, _, metrics = train_linear_regression(X_tr, y_tr, X_va, y_va, **best)
+        best = tune_linear(X_tr, y_tr) if cfg.tune else {}
+        model, metrics = train_linear(X_tr, y_tr, X_va, y_va, **best)
+
 
     else:  # should never happen due to argparse choices
         raise ValueError(f"Unknown model {cfg.model}")
@@ -115,22 +126,47 @@ def main() -> None:
         datefmt="%H:%M:%S",
     )
     logging.info("Reading CSV and building LOFO splits …")
-
-    df      = pd.read_csv(cfg.csv)
-    splits  = get_data_splits(df, cfg.data_root, cfg.model)
+    
+    temp_df = pd.read_csv(cfg.temp_csv)
+    images_df      = pd.read_csv(cfg.csv)
+    images_splits  = get_data_splits(images_df, temp_df, cfg.data_root, cfg.model, (20241201, 20250228))    
+    
     results = []
 
-    for k, (X_tr, y_tr, X_va, y_va, test_field) in enumerate(splits, 1):
-        logging.info(f"Fold {k}/{len(splits)}  —  left-out field: {test_field}")
-        _, metrics = build_and_train(cfg, X_tr, y_tr, X_va, y_va)
+    for k, (X_tr, y_tr, X_va, y_va, test_field) in enumerate(images_splits, 1):
+        logging.info(f"Fold {k}/{len(images_splits)}  —  left-out field: {test_field}")
+        model, metrics = build_and_train(cfg, X_tr, y_tr, X_va, y_va)
+        
+        print(f"Example model predictions (first 5) Y value: {y_va[:5]}")
+        if cfg.model in {"vit", "vit_lstm", "resnet", "resnet_lstm"}:
+            X_tensor = torch.from_numpy(X_va[:5]).float().to('cuda' if torch.cuda.is_available() else 'cpu')
+            print(model(X_tensor))
+        elif cfg.model == "xgb":
+            print(model.predict(xgb.DMatrix(X_va[:5])))
+        elif cfg.model == "linear":
+            X_tensor = torch.from_numpy(X_va[:5]).float().to('cuda' if torch.cuda.is_available() else 'cpu')
+            print(model(X_tensor))
+        else:
+            raise ValueError(f"Unknown model {cfg.model}")
+        
         results.append(metrics)
         print(f"Fold {k:02d} | {metrics}")
-
+        
+    # ────────────────────────────────────────────────
+    # Display per-fold metrics
+    print("\n=== Per-fold metrics ===")
+    for k, m in enumerate(results, 1):
+        print(f"Fold {k:02d} | {m}")  
+        
     # ─┐ aggregate & print summary
     #   └──────────────────────────────────────────────
     df_metrics = pd.DataFrame(results)
     print("\n=== Cross-validated summary ===")
     print(df_metrics.describe().loc[["mean", "std"]])
+    
+    out_csv = Path(cfg.data_root, f"metrics_{cfg.model}.csv")
+    df_metrics.to_csv(out_csv, index_label="fold")
+    print(f"\nSaved fold metrics ➜ {out_csv}")
 
 # ─────────────────────────────────────────────────────────────
 if __name__ == "__main__":

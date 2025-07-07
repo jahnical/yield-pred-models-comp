@@ -40,6 +40,22 @@
         "documentation": {}
     },
     {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
         "label": "dataclass",
         "importPath": "dataclasses",
         "description": "dataclasses",
@@ -146,6 +162,14 @@
     },
     {
         "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -359,6 +383,38 @@
         "documentation": {}
     },
     {
+        "label": "CNNCfg",
+        "importPath": "cnn_yield.resnet_regressor",
+        "description": "cnn_yield.resnet_regressor",
+        "isExtraImport": true,
+        "detail": "cnn_yield.resnet_regressor",
+        "documentation": {}
+    },
+    {
+        "label": "ResNetYieldRegressor",
+        "importPath": "cnn_yield.resnet_regressor",
+        "description": "cnn_yield.resnet_regressor",
+        "isExtraImport": true,
+        "detail": "cnn_yield.resnet_regressor",
+        "documentation": {}
+    },
+    {
+        "label": "ResNetYieldRegressor",
+        "importPath": "cnn_yield.resnet_regressor",
+        "description": "cnn_yield.resnet_regressor",
+        "isExtraImport": true,
+        "detail": "cnn_yield.resnet_regressor",
+        "documentation": {}
+    },
+    {
+        "label": "CNNCfg",
+        "importPath": "cnn_yield.resnet_regressor",
+        "description": "cnn_yield.resnet_regressor",
+        "isExtraImport": true,
+        "detail": "cnn_yield.resnet_regressor",
+        "documentation": {}
+    },
+    {
         "label": "optuna",
         "kind": 6,
         "isExtraImport": true,
@@ -400,6 +456,46 @@
         "documentation": {}
     },
     {
+        "label": "compute_metrics",
+        "importPath": "metrics",
+        "description": "metrics",
+        "isExtraImport": true,
+        "detail": "metrics",
+        "documentation": {}
+    },
+    {
+        "label": "compute_metrics",
+        "importPath": "metrics",
+        "description": "metrics",
+        "isExtraImport": true,
+        "detail": "metrics",
+        "documentation": {}
+    },
+    {
+        "label": "compute_metrics",
+        "importPath": "metrics",
+        "description": "metrics",
+        "isExtraImport": true,
+        "detail": "metrics",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
         "label": "Path",
         "importPath": "pathlib",
         "description": "pathlib",
@@ -429,56 +525,30 @@
         "description": "timm.models.vision_transformer",
         "isExtraImport": true,
         "detail": "timm.models.vision_transformer",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib ",
-        "description": "pathlib ",
-        "isExtraImport": true,
-        "detail": "pathlib ",
         "documentation": {}
     },
     {
         "label": "List",
-        "importPath": "typing   ",
-        "description": "typing   ",
+        "importPath": "typing ",
+        "description": "typing ",
         "isExtraImport": true,
-        "detail": "typing   ",
+        "detail": "typing ",
         "documentation": {}
     },
     {
         "label": "Tuple",
-        "importPath": "typing   ",
-        "description": "typing   ",
+        "importPath": "typing ",
+        "description": "typing ",
         "isExtraImport": true,
-        "detail": "typing   ",
+        "detail": "typing ",
         "documentation": {}
     },
     {
         "label": "Dict",
-        "importPath": "typing   ",
-        "description": "typing   ",
+        "importPath": "typing ",
+        "description": "typing ",
         "isExtraImport": true,
-        "detail": "typing   ",
-        "documentation": {}
-    },
-    {
-        "label": "pandas",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "pandas",
-        "description": "pandas",
-        "detail": "pandas",
-        "documentation": {}
-    },
-    {
-        "label": "rasterio",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "rasterio",
-        "description": "rasterio",
-        "detail": "rasterio",
+        "detail": "typing ",
         "documentation": {}
     },
     {
@@ -511,10 +581,34 @@
         "description": "numpy.lib.stride_tricks",
         "isExtraImport": true,
         "detail": "numpy.lib.stride_tricks",
+        "documentation": {}
+    },
+    {
+        "label": "mean_absolute_error",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
         "documentation": {}
     },
     {
         "label": "mean_squared_error",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "r2_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "root_mean_squared_error",
         "importPath": "sklearn.metrics",
         "description": "sklearn.metrics",
         "isExtraImport": true,
@@ -538,14 +632,6 @@
         "documentation": {}
     },
     {
-        "label": "mean_squared_error",
-        "importPath": "sklearn.metrics",
-        "description": "sklearn.metrics",
-        "isExtraImport": true,
-        "detail": "sklearn.metrics",
-        "documentation": {}
-    },
-    {
         "label": "resample",
         "importPath": "sklearn.utils",
         "description": "sklearn.utils",
@@ -554,19 +640,19 @@
         "documentation": {}
     },
     {
-        "label": "compute_metrics",
-        "importPath": "data_util",
-        "description": "data_util",
+        "label": "train_test_split",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
         "isExtraImport": true,
-        "detail": "data_util",
+        "detail": "sklearn.model_selection",
         "documentation": {}
     },
     {
-        "label": "compute_metrics",
-        "importPath": "data_util",
-        "description": "data_util",
+        "label": "train_test_split",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
         "isExtraImport": true,
-        "detail": "data_util",
+        "detail": "sklearn.model_selection",
         "documentation": {}
     },
     {
@@ -584,6 +670,15 @@
         "importPath": "argparse.",
         "description": "argparse.",
         "detail": "argparse.",
+        "documentation": {}
+    },
+    {
+        "label": "xgboost",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "xgboost",
+        "description": "xgboost",
+        "detail": "xgboost",
         "documentation": {}
     },
     {
@@ -619,68 +714,52 @@
         "documentation": {}
     },
     {
-        "label": "ResNetYieldRegressor",
-        "importPath": "cnn_yield.resnet_regressor",
-        "description": "cnn_yield.resnet_regressor",
+        "label": "tune_resnet_hyperparams",
+        "importPath": "vit_yield.training",
+        "description": "vit_yield.training",
         "isExtraImport": true,
-        "detail": "cnn_yield.resnet_regressor",
+        "detail": "vit_yield.training",
         "documentation": {}
     },
     {
-        "label": "CNNCfg",
-        "importPath": "cnn_yield.resnet_regressor",
-        "description": "cnn_yield.resnet_regressor",
+        "label": "train_xgb",
+        "importPath": "xgb_utils",
+        "description": "xgb_utils",
         "isExtraImport": true,
-        "detail": "cnn_yield.resnet_regressor",
+        "detail": "xgb_utils",
         "documentation": {}
     },
     {
-        "label": "train_xgboost",
-        "importPath": "tabular           ",
-        "description": "tabular           ",
+        "label": "tune_xgb_optuna",
+        "importPath": "xgb_utils",
+        "description": "xgb_utils",
         "isExtraImport": true,
-        "detail": "tabular           ",
+        "detail": "xgb_utils",
         "documentation": {}
     },
     {
-        "label": "tune_xgboost",
-        "importPath": "tabular           ",
-        "description": "tabular           ",
+        "label": "train_linear",
+        "importPath": "linear_utils",
+        "description": "linear_utils",
         "isExtraImport": true,
-        "detail": "tabular           ",
+        "detail": "linear_utils",
         "documentation": {}
     },
     {
-        "label": "train_linear_regression",
-        "importPath": "linear_regression ",
-        "description": "linear_regression ",
+        "label": "tune_linear",
+        "importPath": "linear_utils",
+        "description": "linear_utils",
         "isExtraImport": true,
-        "detail": "linear_regression ",
+        "detail": "linear_utils",
         "documentation": {}
     },
     {
-        "label": "tune_linear_regression",
-        "importPath": "linear_regression ",
-        "description": "linear_regression ",
-        "isExtraImport": true,
-        "detail": "linear_regression ",
-        "documentation": {}
-    },
-    {
-        "label": "xgboost",
+        "label": "pandas",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "xgboost",
-        "description": "xgboost",
-        "detail": "xgboost",
-        "documentation": {}
-    },
-    {
-        "label": "train_test_split",
-        "importPath": "sklearn.model_selection",
-        "description": "sklearn.model_selection",
-        "isExtraImport": true,
-        "detail": "sklearn.model_selection",
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
         "documentation": {}
     },
     {
@@ -706,6 +785,15 @@
         "description": "PIL",
         "isExtraImport": true,
         "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "rasterio",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "rasterio",
+        "description": "rasterio",
+        "detail": "rasterio",
         "documentation": {}
     },
     {
@@ -749,7 +837,7 @@
         "kind": 6,
         "importPath": "src.vit_yield.training",
         "description": "src.vit_yield.training",
-        "peekOfCode": "class PatchDataset(Dataset):\n    \"\"\"Holds (X, y) where X is (N,C,H,W) or (N,T,C,H,W).\"\"\"\n    def __init__(self, X: np.ndarray, y: np.ndarray) -> None:\n        self.X = torch.as_tensor(X, dtype=torch.float32)\n        self.y = torch.as_tensor(y, dtype=torch.float32)\n    def __len__(self) -> int: return len(self.X)\n    def __getitem__(self, idx): return self.X[idx], self.y[idx]\ndef compute_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> Dict[str, float]:\n    rmse = float(np.sqrt(((y_true - y_pred) ** 2).mean()))\n    mae  = float(np.abs(y_true - y_pred).mean())",
+        "peekOfCode": "class PatchDataset(Dataset):\n    \"\"\"Holds (X, y) where X is (N,C,H,W) or (N,T,C,H,W).\"\"\"\n    def __init__(self, X: np.ndarray, y: np.ndarray) -> None:\n        self.X = torch.as_tensor(X, dtype=torch.float32)\n        self.y = torch.as_tensor(y, dtype=torch.float32)\n    def __len__(self) -> int: return len(self.X)\n    def __getitem__(self, idx): return self.X[idx], self.y[idx]\n# ──────────────────────────────────────────────────────────────\n#  Training loop\n# ──────────────────────────────────────────────────────────────",
         "detail": "src.vit_yield.training",
         "documentation": {}
     },
@@ -759,15 +847,6 @@
         "importPath": "src.vit_yield.training",
         "description": "src.vit_yield.training",
         "peekOfCode": "class TrainCfg:\n    epochs:    int   = 50\n    lr:        float = 1e-3\n    batch:     int   = 32\n    patience:  int   = 5\n    clip_grad: float = 1.0\ndef train_model(\n    model: nn.Module,\n    train_X: np.ndarray,\n    train_y: np.ndarray,",
-        "detail": "src.vit_yield.training",
-        "documentation": {}
-    },
-    {
-        "label": "compute_metrics",
-        "kind": 2,
-        "importPath": "src.vit_yield.training",
-        "description": "src.vit_yield.training",
-        "peekOfCode": "def compute_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> Dict[str, float]:\n    rmse = float(np.sqrt(((y_true - y_pred) ** 2).mean()))\n    mae  = float(np.abs(y_true - y_pred).mean())\n    return {\"RMSE\": rmse, \"MAE\": mae}\n# ──────────────────────────────────────────────────────────────\n#  Training loop\n# ──────────────────────────────────────────────────────────────\n@dataclass\nclass TrainCfg:\n    epochs:    int   = 50",
         "detail": "src.vit_yield.training",
         "documentation": {}
     },
@@ -790,6 +869,15 @@
         "documentation": {}
     },
     {
+        "label": "tune_resnet_hyperparams",
+        "kind": 2,
+        "importPath": "src.vit_yield.training",
+        "description": "src.vit_yield.training",
+        "peekOfCode": "def tune_resnet_hyperparams(\n    X: np.ndarray,\n    y: np.ndarray,\n    n_trials: int = 20,\n    device:   str = \"cuda\",\n) -> optuna.Study:\n    \"\"\"Optuna hyper-parameter tuning for ResNet model.\"\"\"\n    def objective(trial: optuna.Trial):\n        cfg_cnn = CNNCfg(\n            lstm=True,",
+        "detail": "src.vit_yield.training",
+        "documentation": {}
+    },
+    {
         "label": "VitConfig",
         "kind": 6,
         "importPath": "src.vit_yield.vit_regressor",
@@ -808,20 +896,11 @@
         "documentation": {}
     },
     {
-        "label": "Split",
-        "kind": 6,
-        "importPath": "src.data_util",
-        "description": "src.data_util",
-        "peekOfCode": "class Split:  # only used internally; final return is list of tuples\n    Xtr: np.ndarray; ytr: np.ndarray\n    Xte: np.ndarray; yte: np.ndarray\n    field: str\n# ───────────────────────── get_data_splits ─────────────────────────\ndef get_data_splits(\n    df: pd.DataFrame,\n    root: Path,\n    model: str = \"cnn\",\n    date_range: Tuple[str, str] | None = None,",
-        "detail": "src.data_util",
-        "documentation": {}
-    },
-    {
         "label": "get_data_splits",
         "kind": 2,
         "importPath": "src.data_util",
         "description": "src.data_util",
-        "peekOfCode": "def get_data_splits(\n    df: pd.DataFrame,\n    root: Path,\n    model: str = \"cnn\",\n    date_range: Tuple[str, str] | None = None,\n) -> List[Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, str]]:\n    \"\"\"Return LOFO splits ready for 'cnn', 'cnn_lstm', 'resnet'/'vit', or 'tabular'.\"\"\"\n    if date_range:\n        s, e = date_range\n        df = df[(df.end_date >= s) & (df.start_date <= e)]",
+        "peekOfCode": "def get_data_splits(\n    df: pd.DataFrame,\n    temp_df: pd.DataFrame | None,\n    root: Path,\n    model: str = \"cnn\",\n    date_range: Tuple[str, str] | None = None,\n) -> List[Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, str]]:\n    \"\"\"Return LOFO splits for 'cnn', 'cnn_lstm', 'resnet', 'vit', or 'xgb'.\"\"\"\n    if date_range:\n        s, e = date_range",
         "detail": "src.data_util",
         "documentation": {}
     },
@@ -830,7 +909,7 @@
         "kind": 2,
         "importPath": "src.data_util",
         "description": "src.data_util",
-        "peekOfCode": "def rmse(y, p): return float(np.sqrt(mean_squared_error(y, p)))\ndef compute_metrics(y_true, y_pred):\n    return dict(rmse=rmse(y_true, y_pred),\n                mae=float(mean_absolute_error(y_true, y_pred)),\n                r2=float(r2_score(y_true, y_pred)))\ndef paired_bootstrap(y, p1, p2, n=1000):\n    diffs = [(rmse(y[idx], p1[idx]) - rmse(y[idx], p2[idx]))\n             for idx in (resample(np.arange(len(y)), replace=True) for _ in range(n))]\n    p = (np.sum(np.array(diffs) > 0) + 1) / (n + 1)\n    return p, diffs",
+        "peekOfCode": "def rmse(y, p): return float(np.sqrt(mean_squared_error(y, p)))\ndef compute_metrics(y_true, y_pred):\n    return dict(rmse=rmse(y_true, y_pred),\n                mae=float(mean_absolute_error(y_true, y_pred)),\n                r2=float(r2_score(y_true, y_pred)))\ndef paired_bootstrap(y, p1, p2, n=1000):\n    idxs  = (resample(np.arange(len(y)), replace=True) for _ in range(n))\n    diff  = [rmse(y[i], p1[i]) - rmse(y[i], p2[i]) for i in idxs]\n    p_val = (np.sum(np.array(diff) > 0) + 1) / (n + 1)\n    return p_val, diff",
         "detail": "src.data_util",
         "documentation": {}
     },
@@ -839,7 +918,7 @@
         "kind": 2,
         "importPath": "src.data_util",
         "description": "src.data_util",
-        "peekOfCode": "def compute_metrics(y_true, y_pred):\n    return dict(rmse=rmse(y_true, y_pred),\n                mae=float(mean_absolute_error(y_true, y_pred)),\n                r2=float(r2_score(y_true, y_pred)))\ndef paired_bootstrap(y, p1, p2, n=1000):\n    diffs = [(rmse(y[idx], p1[idx]) - rmse(y[idx], p2[idx]))\n             for idx in (resample(np.arange(len(y)), replace=True) for _ in range(n))]\n    p = (np.sum(np.array(diffs) > 0) + 1) / (n + 1)\n    return p, diffs",
+        "peekOfCode": "def compute_metrics(y_true, y_pred):\n    return dict(rmse=rmse(y_true, y_pred),\n                mae=float(mean_absolute_error(y_true, y_pred)),\n                r2=float(r2_score(y_true, y_pred)))\ndef paired_bootstrap(y, p1, p2, n=1000):\n    idxs  = (resample(np.arange(len(y)), replace=True) for _ in range(n))\n    diff  = [rmse(y[i], p1[i]) - rmse(y[i], p2[i]) for i in idxs]\n    p_val = (np.sum(np.array(diff) > 0) + 1) / (n + 1)\n    return p_val, diff",
         "detail": "src.data_util",
         "documentation": {}
     },
@@ -848,44 +927,44 @@
         "kind": 2,
         "importPath": "src.data_util",
         "description": "src.data_util",
-        "peekOfCode": "def paired_bootstrap(y, p1, p2, n=1000):\n    diffs = [(rmse(y[idx], p1[idx]) - rmse(y[idx], p2[idx]))\n             for idx in (resample(np.arange(len(y)), replace=True) for _ in range(n))]\n    p = (np.sum(np.array(diffs) > 0) + 1) / (n + 1)\n    return p, diffs",
+        "peekOfCode": "def paired_bootstrap(y, p1, p2, n=1000):\n    idxs  = (resample(np.arange(len(y)), replace=True) for _ in range(n))\n    diff  = [rmse(y[i], p1[i]) - rmse(y[i], p2[i]) for i in idxs]\n    p_val = (np.sum(np.array(diff) > 0) + 1) / (n + 1)\n    return p_val, diff",
         "detail": "src.data_util",
         "documentation": {}
     },
     {
-        "label": "splits",
+        "label": "_mean_feat",
         "kind": 5,
         "importPath": "src.data_util",
         "description": "src.data_util",
-        "peekOfCode": "splits = get_data_splits(df, Path(\"/data/imagery\"), model=\"cnn_lstm\")\nfor Xtr, ytr, Xte, yte, fld in splits:\n    ...\n\"\"\"\nfrom __future__ import annotations\nfrom dataclasses import dataclass\nfrom pathlib  import Path\nfrom typing    import List, Tuple, Dict\nimport numpy as np\nimport pandas as pd",
+        "peekOfCode": "_mean_feat = lambda s: (\n    np.hstack([m := s.mean((2, 3)).reshape(-1, BANDS),          # bands\n               np.apply_along_axis(_indices, 1, m)])            # + 5 indices\n    if s.size else np.empty((0, BANDS + 5))\n)\n# ─────────── branch builders (clean & reusable) ──────────────\ndef _make_lstm_split(others, X_te, y_te):\n    Tmax = max((v[0].shape[1] for v in others), default=0)\n    Xtr  = np.concatenate([_pad_seq(v[0], Tmax) for v in others], axis=0) \\\n           if others else np.empty((0, 0, BANDS, PATCH, PATCH))",
         "detail": "src.data_util",
         "documentation": {}
     },
     {
-        "label": "LinearRegressionModel",
+        "label": "LinearReg",
         "kind": 6,
-        "importPath": "src.linear_regression",
-        "description": "src.linear_regression",
-        "peekOfCode": "class LinearRegressionModel(nn.Module):\n    def __init__(self, in_features):\n        super().__init__()\n        self.linear = nn.Linear(in_features, 1)\n    def forward(self, x):\n        return self.linear(x)\ndef train_linear_regression(X_train, y_train, X_val, y_val, epochs=100, lr=1e-3):\n    model = LinearRegressionModel(X_train.shape[1])\n    optimizer = optim.Adam(model.parameters(), lr=lr)\n    loss_fn = nn.MSELoss()",
-        "detail": "src.linear_regression",
+        "importPath": "src.linear_utils",
+        "description": "src.linear_utils",
+        "peekOfCode": "class LinearReg(torch.nn.Module):\n    def __init__(self, d_in: int):       # y = Wx + b\n        super().__init__()\n        self.linear = torch.nn.Linear(d_in, 1)\n    def forward(self, x):                # (B,d) → (B,1)\n        return self.linear(x).squeeze(1)\n# ────────────── single-run training ───────────\ndef train_linear(\n    X_tr: np.ndarray, y_tr: np.ndarray,\n    X_va: np.ndarray, y_va: np.ndarray,",
+        "detail": "src.linear_utils",
         "documentation": {}
     },
     {
-        "label": "train_linear_regression",
+        "label": "train_linear",
         "kind": 2,
-        "importPath": "src.linear_regression",
-        "description": "src.linear_regression",
-        "peekOfCode": "def train_linear_regression(X_train, y_train, X_val, y_val, epochs=100, lr=1e-3):\n    model = LinearRegressionModel(X_train.shape[1])\n    optimizer = optim.Adam(model.parameters(), lr=lr)\n    loss_fn = nn.MSELoss()\n    for epoch in range(epochs):\n        model.train()\n        optimizer.zero_grad()\n        y_pred = model(torch.from_numpy(X_train).float())\n        loss = loss_fn(y_pred.squeeze(), torch.from_numpy(y_train).float())\n        loss.backward()",
-        "detail": "src.linear_regression",
+        "importPath": "src.linear_utils",
+        "description": "src.linear_utils",
+        "peekOfCode": "def train_linear(\n    X_tr: np.ndarray, y_tr: np.ndarray,\n    X_va: np.ndarray, y_va: np.ndarray,\n    lr: float = 1e-3,\n    wd: float = 0.0,\n    epochs: int = 200,\n    patience: int = 25,\n    device: str | torch.device | None = None,\n):\n    dev   = torch.device(device or (\"cuda\" if torch.cuda.is_available() else \"cpu\"))",
+        "detail": "src.linear_utils",
         "documentation": {}
     },
     {
-        "label": "tune_linear_regression",
+        "label": "tune_linear",
         "kind": 2,
-        "importPath": "src.linear_regression",
-        "description": "src.linear_regression",
-        "peekOfCode": "def tune_linear_regression(X, y, n_trials=20):\n    def objective(trial):\n        lr = trial.suggest_float('lr', 1e-4, 1e-2, log=True)\n        epochs = trial.suggest_int('epochs', 50, 300)\n        model = LinearRegressionModel(X.shape[1])\n        optimizer = optim.Adam(model.parameters(), lr=lr)\n        loss_fn = nn.MSELoss()\n        for _ in range(epochs):\n            model.train()\n            optimizer.zero_grad()",
-        "detail": "src.linear_regression",
+        "importPath": "src.linear_utils",
+        "description": "src.linear_utils",
+        "peekOfCode": "def tune_linear(\n    X: np.ndarray, y: np.ndarray,\n    n_trials: int = 40,\n    seed: int = 42,\n):\n    X_tr, X_va, y_tr, y_va = train_test_split(\n        X, y, test_size=0.2, random_state=seed)\n    def obj(trial: optuna.Trial):\n        params = dict(\n            lr = trial.suggest_float(\"lr\", 1e-4, 1e-2, log=True),",
+        "detail": "src.linear_utils",
         "documentation": {}
     },
     {
@@ -893,7 +972,7 @@
         "kind": 6,
         "importPath": "src.main",
         "description": "src.main",
-        "peekOfCode": "class CLIConfig:\n    model:        str\n    tune:         bool = False\n    csv:          Path = Path(\"/home/matthew/Documents/yield/imagery/Yield_GEE_S2_ByField/field_images.csv\")\n    data_root:    Path = Path(\"/home/matthew/Documents/yield/imagery/Yield_GEE_S2_ByField/\")\n# ─────────────────────────────────────────────────────────────\n# 2│ Argument-parser that builds CLIConfig\n#    (mutually-exclusive flags, automatic help formatting)\n# ─────────────────────────────────────────────────────────────\ndef parse_args() -> CLIConfig:",
+        "peekOfCode": "class CLIConfig:\n    model:        str\n    tune:         bool = False\n    csv:          Path = Path(\"/home/matthew/Projects/comparative-yield-models/Yield_GEE_S2_ByField/field_images_grouped.csv\")\n    data_root:    Path = Path(\"/home/matthew/Projects/comparative-yield-models/\")\n    temp_csv:     Path = Path(\"/home/matthew/Projects/comparative-yield-models/Yield_GEE_TEMP_ByField/field_temps.csv\")\n    soil_root:  Path = Path(\"/home/matthew/Projects/comparative-yield-models/Yield_GEE_SoilOrg/\")\n# ─────────────────────────────────────────────────────────────\n# 2│ Argument-parser that builds CLIConfig\n#    (mutually-exclusive flags, automatic help formatting)",
         "detail": "src.main",
         "documentation": {}
     },
@@ -911,7 +990,7 @@
         "kind": 2,
         "importPath": "src.main",
         "description": "src.main",
-        "peekOfCode": "def build_and_train(cfg: CLIConfig,\n                    X_tr: np.ndarray, y_tr: np.ndarray,\n                    X_va: np.ndarray, y_va: np.ndarray):\n    \"\"\"Return trained model + metrics dict.\"\"\"\n    # ---------- Vision-Transformer family ----------\n    if cfg.model in {\"vit\", \"vit_lstm\"}:\n        vit_cfg = VitConfig(lstm=cfg.model == \"vit_lstm\")\n        if cfg.tune and cfg.model == \"vit_lstm\":\n            best = tune_hyperparams(X_tr, y_tr, 20)\n            vit_cfg = VitConfig(**best.params)      # Optuna -> dataclass",
+        "peekOfCode": "def build_and_train(cfg: CLIConfig,\n                    X_tr: np.ndarray, y_tr: np.ndarray,\n                    X_va: np.ndarray, y_va: np.ndarray):\n    \"\"\"Return trained model + metrics dict.\"\"\"\n    # ---------- Vision-Transformer family ----------\n    if cfg.model in {\"vit\", \"vit_lstm\"}:\n        vit_cfg = VitConfig(lstm=cfg.model == \"vit_lstm\")\n        if cfg.tune and cfg.model == \"vit_lstm\":\n            best = tune_hyperparams(X_tr, y_tr, 20)\n            vit_cfg = VitConfig(lstm_hidden=best.params['hidden'], lstm_layers=best.params['layers'], lstm=True)      # Optuna -> dataclass",
         "detail": "src.main",
         "documentation": {}
     },
@@ -920,26 +999,44 @@
         "kind": 2,
         "importPath": "src.main",
         "description": "src.main",
-        "peekOfCode": "def main() -> None:\n    cfg = parse_args()\n    logging.basicConfig(\n        level=logging.INFO,\n        format=\"%(asctime)s | %(levelname)-8s | %(message)s\",\n        datefmt=\"%H:%M:%S\",\n    )\n    logging.info(\"Reading CSV and building LOFO splits …\")\n    df      = pd.read_csv(cfg.csv)\n    splits  = get_data_splits(df, cfg.data_root, cfg.model)",
+        "peekOfCode": "def main() -> None:\n    cfg = parse_args()\n    logging.basicConfig(\n        level=logging.INFO,\n        format=\"%(asctime)s | %(levelname)-8s | %(message)s\",\n        datefmt=\"%H:%M:%S\",\n    )\n    logging.info(\"Reading CSV and building LOFO splits …\")\n    temp_df = pd.read_csv(cfg.temp_csv)\n    images_df      = pd.read_csv(cfg.csv)",
         "detail": "src.main",
         "documentation": {}
     },
     {
-        "label": "train_xgboost",
+        "label": "compute_metrics",
         "kind": 2,
-        "importPath": "src.tabular",
-        "description": "src.tabular",
-        "peekOfCode": "def train_xgboost(X_train, y_train, X_val, y_val, param_grid=None):\n    if param_grid is None:\n        param_grid = {\n            'max_depth': 3,\n            'learning_rate': 0.1,\n            'n_estimators': 100,\n            'objective': 'reg:squarederror',\n        }\n    model = xgb.XGBRegressor(**param_grid)\n    model.fit(X_train, y_train, eval_set=[(X_val, y_val)], early_stopping_rounds=10, verbose=False)",
-        "detail": "src.tabular",
+        "importPath": "src.metrics",
+        "description": "src.metrics",
+        "peekOfCode": "def compute_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> Dict[str, float]:\n    \"\"\"Return RMSE, MAE and R² in one dict (ready for DataFrame()).\"\"\"\n    rmse = root_mean_squared_error(y_true, y_pred)\n    mae  = mean_absolute_error(y_true, y_pred)\n    r2   = r2_score(y_true, y_pred)\n    return {\"rmse\": rmse, \"mae\": mae, \"r2\": r2}",
+        "detail": "src.metrics",
         "documentation": {}
     },
     {
-        "label": "tune_xgboost",
+        "label": "train_xgb",
         "kind": 2,
-        "importPath": "src.tabular",
-        "description": "src.tabular",
-        "peekOfCode": "def tune_xgboost(X, y, n_trials=20):\n    def objective(trial):\n        X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)\n        param = {\n            'max_depth': trial.suggest_int('max_depth', 2, 8),\n            'learning_rate': trial.suggest_float('learning_rate', 0.01, 0.3),\n            'n_estimators': trial.suggest_int('n_estimators', 50, 300),\n            'subsample': trial.suggest_float('subsample', 0.5, 1.0),\n            'colsample_bytree': trial.suggest_float('colsample_bytree', 0.5, 1.0),\n            'objective': 'reg:squarederror',",
-        "detail": "src.tabular",
+        "importPath": "src.xgb_utils",
+        "description": "src.xgb_utils",
+        "peekOfCode": "def train_xgb(\n    X_train: np.ndarray,\n    y_train: np.ndarray,\n    X_val:   np.ndarray,\n    y_val:   np.ndarray,\n    params:  dict | None = None,\n    early:   int  = 80,                # ≈10 % of default 800 trees\n):\n    \"\"\"Train XGBoost regressor with early stopping; returns (model, metrics).\"\"\"\n    prm = BASE_PARAMS | (params or {})",
+        "detail": "src.xgb_utils",
+        "documentation": {}
+    },
+    {
+        "label": "tune_xgb_optuna",
+        "kind": 2,
+        "importPath": "src.xgb_utils",
+        "description": "src.xgb_utils",
+        "peekOfCode": "def tune_xgb_optuna(\n    X: np.ndarray,\n    y: np.ndarray,\n    n_trials: int = 50,\n    seed: int = 42,\n):\n    \"\"\"Optuna Bayesian search; returns best param-dict merged into BASE_PARAMS.\"\"\"\n    X_tr, X_val, y_tr, y_val = train_test_split(X, y, test_size=0.2, random_state=seed)\n    def objective(trial: optuna.Trial) -> float:\n        prm = {",
+        "detail": "src.xgb_utils",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_PARAMS",
+        "kind": 5,
+        "importPath": "src.xgb_utils",
+        "description": "src.xgb_utils",
+        "peekOfCode": "BASE_PARAMS = dict(\n    objective=\"reg:squarederror\",\n    eval_metric=\"rmse\",\n    tree_method= \"hist\",#\"gpu_hist\" if _gpu_available() else \"hist\",\n    learning_rate=0.05,\n    max_depth=6,\n    subsample=0.8,\n    colsample_bytree=0.8,\n    n_estimators=800,\n)",
+        "detail": "src.xgb_utils",
         "documentation": {}
     },
     {
