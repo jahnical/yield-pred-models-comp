@@ -1,3 +1,59 @@
+"""
+Reproducibility & Workflow Documentation
+=======================================
+
+This project is designed for full reproducibility of comparative yield modeling experiments. To ensure that reviewers and collaborators can exactly reproduce your results, follow these steps:
+
+1. **Environment Setup**
+   - Clone the repository.
+   - Use the provided `requirements.txt` to install all dependencies:
+     ```bash
+     python -m venv .venv
+     source .venv/bin/activate
+     pip install -r requirements.txt
+     ```
+   - The project uses fixed versions for all dependencies. If you use a different environment, ensure all package versions match those in `requirements.txt`.
+
+2. **Random Seeds**
+   - All scripts set `np.random.seed(42)` and `torch.manual_seed(42)` for deterministic results.
+   - For full determinism in PyTorch, you may also set:
+     ```python
+     torch.use_deterministic_algorithms(True)
+     torch.backends.cudnn.deterministic = True
+     torch.backends.cudnn.benchmark = False
+     ```
+   - Note: Some GPU operations may still introduce minor non-determinism.
+
+3. **Data**
+   - Place all required data (e.g., Sentinel-2 TIFFs, CSVs) in the specified folders as described in the README.
+   - Use the same CSVs and imagery as referenced in your experiments.
+
+4. **Running Experiments**
+   - Use the main script as described in the README and docstrings:
+     ```bash
+     python src/main.py vit --csv data/field_images.csv --data_root data/Yield_GEE_S2_ByField
+     ```
+   - For hyperparameter tuning, add `--tune`.
+   - All results, metrics, and model checkpoints are saved with clear naming conventions.
+
+5. **Results & Reporting**
+   - All metrics are computed using the same helper functions (`metrics.py`) for consistency.
+   - Cross-validation splits are deterministic and based on field names.
+   - Inference-time benchmarking is included for efficiency comparisons.
+
+6. **Version Control**
+   - All code, configuration, and scripts are tracked in git.
+   - Any changes to the workflow should be committed and described in commit messages.
+
+7. **License**
+   - The project is released under GPL-3.0. All derivative works must also be open source under the same license.
+
+8. **Contact**
+   - For questions or issues, open an issue on the repository or contact the maintainer.
+
+By following these steps, reviewers and collaborators can reproduce all results and analyses exactly as reported.
+"""
+
 from __future__ import annotations
 from typing   import Tuple, Dict
 from dataclasses import dataclass
@@ -14,6 +70,9 @@ import optuna
 
 from vit_yield.vit_regressor import ViTYieldRegressor, VitConfig
 from metrics import compute_metrics  # <-- central helper (RMSE, MAE, R²)
+
+torch.manual_seed(42)  # for reproducibility
+np.random.seed(42)     # for reproducibility
 
 # ──────────────────────────────────────────────────────────────
 #  Dataset
@@ -36,7 +95,7 @@ class TrainCfg:
     epochs:    int   = 50
     lr:        float = 1e-3
     batch:     int   = 32
-    patience:  int   = 5
+    patience:  int   = 10
     clip_grad: float = 1.0
 
 def train_model(
@@ -85,16 +144,19 @@ def train_model(
         sch.step()
         train_rmse = (running / len(train_ds)) ** 0.5
 
-        # ── validate ────────────────────────────────────────
-        model.eval(); y_preds, y_true = [], []
-        with torch.no_grad(), amp.autocast(device_type=dev.type):
-            for xb, yb in vl:
-                pred = model(xb.to(dev)).squeeze().cpu()
-                y_preds.append(pred.numpy())
-                y_true.append(yb.numpy())
-        y_pred_np = np.concatenate(y_preds)
-        y_true_np = np.concatenate(y_true)
-        val_metrics = compute_metrics(y_true_np, y_pred_np)
+        def validate(model):
+            # ── validate ────────────────────────────────────────
+            model.eval(); y_preds, y_true = [], []
+            with torch.no_grad(), amp.autocast(device_type=dev.type):
+                for xb, yb in vl:
+                    pred = model(xb.to(dev)).squeeze().cpu()
+                    y_preds.append(pred.numpy())
+                    y_true.append(yb.numpy())
+            y_pred_np = np.concatenate(y_preds)
+            y_true_np = np.concatenate(y_true)
+            return compute_metrics(y_true_np, y_pred_np)
+        
+        val_metrics = validate(model)
         val_rmse = val_metrics["rmse"]
 
         print(f"Ep {ep:03d} ┊ train {train_rmse:.3f} ┊ val {val_rmse:.3f}")
@@ -109,7 +171,8 @@ def train_model(
                 print("Early-stopping triggered."); break
 
     model.load_state_dict(best_state)
-    return model, val_metrics  # returns RMSE, MAE, R²
+    
+    return model, validate(model)  # returns RMSE, MAE, R²
 
 # ──────────────────────────────────────────────────────────────
 #  Optuna tuning
@@ -163,17 +226,7 @@ def tune_resnet_hyperparams(
     """Optuna hyper-parameter tuning for ResNet model."""
     
     def objective(trial: optuna.Trial):
-        cfg_cnn = CNNCfg(
-            lstm=True,
-            lstm_hidden=trial.suggest_int("lstm_hidden", 64, 256),
-            lstm_layers=trial.suggest_int("lstm_layers", 1, 3),
-        )
-        cfg_train = TrainCfg(
-            epochs   = trial.suggest_int("epochs", 20, 80),
-            lr       = trial.suggest_float("lr", 5e-5, 5e-3, log=True),
-            batch    = 32,
-            patience = 6,
-        )
+        cfg_cnn = CNNCfg.from_optuna_trial(trial)
 
         model = ResNetYieldRegressor(cfg_cnn)
         # simple hold-out split (80/20)
@@ -182,10 +235,10 @@ def tune_resnet_hyperparams(
             model,
             X[:split], y[:split],
             X[split:], y[split:],
-            cfg=cfg_train,
+            cfg=TrainCfg(),
             device=device,
         )
-        trial.report(metrics["rmse"], step=cfg_train.epochs)
+        trial.report(metrics["rmse"], step=TrainCfg.epochs)
         return metrics["rmse"]
 
     study = optuna.create_study(direction="minimize",

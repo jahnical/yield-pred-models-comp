@@ -4,6 +4,9 @@ import numpy as np, torch, optuna
 from sklearn.model_selection import train_test_split
 from metrics import compute_metrics
 
+torch.manual_seed(42)  # for reproducibility
+np.random.seed(42)     # for reproducibility
+
 # ────────────── model definition ──────────────
 class LinearReg(torch.nn.Module):
     def __init__(self, d_in: int):       # y = Wx + b

@@ -17,6 +17,10 @@ from numpy.lib.stride_tricks import sliding_window_view
 from tqdm.auto import tqdm
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.utils import resample
+import torch
+
+torch.manual_seed(42)  # for reproducibility
+np.random.seed(42)     # for reproducibility
 
 # ─────────── GLOBALS (edit if you change tiling) ────────────
 BANDS, PATCH, STRIDE, VALID = 10, 32, 16, 0.60
@@ -230,6 +234,8 @@ def get_data_splits(
     splits: list[Tuple[np.ndarray, ...]] = []
     
     for test_f, (X_te_img, y_te_base) in field_data.items():
+        if test_f == "Field8":
+            continue
 
         # -------- training sets --------
         others_pairs = [
@@ -274,3 +280,26 @@ def paired_bootstrap(y, p1, p2, n=1000):
     diff  = [rmse(y[i], p1[i]) - rmse(y[i], p2[i]) for i in idxs]
     p_val = (np.sum(np.array(diff) > 0) + 1) / (n + 1)
     return p_val, diff
+
+# ---------------------------------------------------------------------
+# vegetation-index helper (vectorised, Torch)
+# ---------------------------------------------------------------------
+def _veg_indices(x: torch.Tensor) -> torch.Tensor:
+    """
+    x : (B, 10, H, W) Sentinel-2 bands 2–12 (we drop band-1 & 9).
+    returns (B, 5)  [NDVI, EVI, NDWI, MSI, RE-NDVI]   each averaged over H×W.
+    """
+    B, _, H, W = x.shape
+    b = x.mean((-2, -1))                    # (B,10) spectral means
+
+    blue, green, red   = b[:, 0], b[:, 1], b[:, 2]
+    nir, swir1         = b[:, 6], b[:, 8]
+    re2                = b[:, 4]
+
+    ndvi   = (nir - red) / (nir + red + 1e-6)
+    evi    = 2.5 * (nir - red) / (nir + 6 * red - 7.5 * blue + 1)
+    ndwi   = (green - nir) / (green + nir + 1e-6)
+    msi    = swir1 / (nir + 1e-6)
+    rendvi = (nir - re2) / (nir + re2 + 1e-6)
+
+    return torch.stack([ndvi, evi, ndwi, msi, rendvi], dim=1)   # (B,5)

@@ -6,6 +6,7 @@ from typing import Tuple, List
 import torch
 import torch.nn as nn
 from timm.models.vision_transformer import VisionTransformer
+from data_util import _veg_indices
 from reben_publication.BigEarthNetv2_0_ImageClassifier import (
     BigEarthNetv2_0_ImageClassifier,
 )
@@ -20,8 +21,9 @@ class VitConfig:
     patch_size: int = 8
     lstm: bool = False
     lstm_hidden: int = 128
-    lstm_layers: int = 1
+    lstm_layers: int = 3
     freeze_backbone: bool = True
+    dropout: float = 0.2
     ckpt: str = "BIFOLD-BigEarthNetv2-0/vit_base_patch8_224-s2-v0.2.0"
 
 
@@ -43,22 +45,25 @@ class ViTYieldRegressor(nn.Module):
         self.backbone = self._build_backbone(cfg)
         self.seq_mode = cfg.lstm
 
-        head_in = self.backbone.embed_dim if not cfg.lstm else cfg.lstm_hidden
-        self.temporal_pool = (
-            nn.LSTM(
-                input_size=self.backbone.embed_dim,
+        emb_dim = self.backbone.embed_dim
+        if cfg.lstm:
+            self.temporal_pool = nn.LSTM(
+                input_size=emb_dim,
                 hidden_size=cfg.lstm_hidden,
                 num_layers=cfg.lstm_layers,
                 batch_first=True,
+                dropout=cfg.dropout,
             )
-            if cfg.lstm
-            else None
-        )
+            head_in = cfg.lstm_hidden + 5        # ← + five indices
+        else:
+            self.temporal_pool = None
+            head_in = emb_dim + 5                # ← + five indices
+
         self.head = nn.Sequential(
             nn.LayerNorm(head_in),
             nn.Linear(head_in, 256),
             nn.ReLU(),
-            nn.Dropout(0.2),
+            nn.Dropout(cfg.dropout),
             nn.Linear(256, 1),
         )
 
@@ -74,13 +79,22 @@ class ViTYieldRegressor(nn.Module):
     # forward
     # -----------------------------------------------------------------
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        if self.seq_mode:  # (B, T, C, H, W)
-            b, t, c, h, w = x.shape
-            feats = self.backbone(x.view(b * t, c, h, w)).view(b, t, -1)
-            feats, _ = self.temporal_pool(feats)
-            feats = feats[:, -1]  # last time-step
-        else:  # (B, C, H, W)
-            feats = self.backbone(x)
+        if self.seq_mode:                                 # (B,T,C,H,W)
+            B, T, C, H, W = x.shape
+            x_flat = x.view(B * T, C, H, W)
+
+            feats = self.backbone(x_flat)                 # (B*T,emb)
+            feats = feats.view(B, T, -1)                  # (B,T,emb)
+            feats, _ = self.temporal_pool(feats)          # keep hidden seq
+            feats = feats[:, -1]                          # last timestep  (B,hidden)
+
+            # vegetation indices from last timestep frame
+            idx = _veg_indices(x[:, -1])                  # (B,5)
+        else:                                             # (B,C,H,W)
+            feats = self.backbone(x)                      # (B,emb)
+            idx   = _veg_indices(x)                       # (B,5)
+
+        feats = torch.cat([feats, idx], dim=1)            # ← concat indices
         return self.head(feats).squeeze(1)
 
     # -----------------------------------------------------------------

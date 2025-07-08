@@ -64,7 +64,7 @@
         "documentation": {}
     },
     {
-        "label": "dataclass",
+        "label": "field",
         "importPath": "dataclasses",
         "description": "dataclasses",
         "isExtraImport": true,
@@ -96,44 +96,19 @@
         "documentation": {}
     },
     {
-        "label": "torch,",
-        "kind": 6,
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
         "isExtraImport": true,
-        "importPath": "torch.",
-        "description": "torch.",
-        "detail": "torch.",
+        "detail": "dataclasses",
         "documentation": {}
     },
     {
-        "label": "resnet50",
-        "importPath": "torchvision.models",
-        "description": "torchvision.models",
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
         "isExtraImport": true,
-        "detail": "torchvision.models",
-        "documentation": {}
-    },
-    {
-        "label": "BigEarthNetv2_0_ImageClassifier",
-        "importPath": "reben_publication.BigEarthNetv2_0_ImageClassifier",
-        "description": "reben_publication.BigEarthNetv2_0_ImageClassifier",
-        "isExtraImport": true,
-        "detail": "reben_publication.BigEarthNetv2_0_ImageClassifier",
-        "documentation": {}
-    },
-    {
-        "label": "BigEarthNetv2_0_ImageClassifier",
-        "importPath": "reben_publication.BigEarthNetv2_0_ImageClassifier",
-        "description": "reben_publication.BigEarthNetv2_0_ImageClassifier",
-        "isExtraImport": true,
-        "detail": "reben_publication.BigEarthNetv2_0_ImageClassifier",
-        "documentation": {}
-    },
-    {
-        "label": "BigEarthNetv2_0_ImageClassifier",
-        "importPath": "reben_publication.BigEarthNetv2_0_ImageClassifier",
-        "description": "reben_publication.BigEarthNetv2_0_ImageClassifier",
-        "isExtraImport": true,
-        "detail": "reben_publication.BigEarthNetv2_0_ImageClassifier",
+        "detail": "typing",
         "documentation": {}
     },
     {
@@ -177,15 +152,6 @@
         "documentation": {}
     },
     {
-        "label": "lightning.pytorch",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "lightning.pytorch",
-        "description": "lightning.pytorch",
-        "detail": "lightning.pytorch",
-        "documentation": {}
-    },
-    {
         "label": "torch",
         "kind": 6,
         "isExtraImport": true,
@@ -200,6 +166,64 @@
         "description": "torch",
         "isExtraImport": true,
         "detail": "torch",
+        "documentation": {}
+    },
+    {
+        "label": "torch.nn",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "torch.nn",
+        "description": "torch.nn",
+        "detail": "torch.nn",
+        "documentation": {}
+    },
+    {
+        "label": "resnet50",
+        "importPath": "torchvision.models",
+        "description": "torchvision.models",
+        "isExtraImport": true,
+        "detail": "torchvision.models",
+        "documentation": {}
+    },
+    {
+        "label": "_veg_indices",
+        "importPath": "data_util",
+        "description": "data_util",
+        "isExtraImport": true,
+        "detail": "data_util",
+        "documentation": {}
+    },
+    {
+        "label": "_veg_indices",
+        "importPath": "data_util",
+        "description": "data_util",
+        "isExtraImport": true,
+        "detail": "data_util",
+        "documentation": {}
+    },
+    {
+        "label": "BigEarthNetv2_0_ImageClassifier",
+        "importPath": "reben_publication.BigEarthNetv2_0_ImageClassifier",
+        "description": "reben_publication.BigEarthNetv2_0_ImageClassifier",
+        "isExtraImport": true,
+        "detail": "reben_publication.BigEarthNetv2_0_ImageClassifier",
+        "documentation": {}
+    },
+    {
+        "label": "BigEarthNetv2_0_ImageClassifier",
+        "importPath": "reben_publication.BigEarthNetv2_0_ImageClassifier",
+        "description": "reben_publication.BigEarthNetv2_0_ImageClassifier",
+        "isExtraImport": true,
+        "detail": "reben_publication.BigEarthNetv2_0_ImageClassifier",
+        "documentation": {}
+    },
+    {
+        "label": "lightning.pytorch",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "lightning.pytorch",
+        "description": "lightning.pytorch",
+        "detail": "lightning.pytorch",
         "documentation": {}
     },
     {
@@ -293,15 +317,6 @@
         "documentation": {}
     },
     {
-        "label": "torch.nn",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "torch.nn",
-        "description": "torch.nn",
-        "detail": "torch.nn",
-        "documentation": {}
-    },
-    {
         "label": "torch.optim",
         "kind": 6,
         "isExtraImport": true,
@@ -332,38 +347,6 @@
         "description": "torch.utils.data",
         "isExtraImport": true,
         "detail": "torch.utils.data",
-        "documentation": {}
-    },
-    {
-        "label": "Dataset",
-        "importPath": "torch.utils.data",
-        "description": "torch.utils.data",
-        "isExtraImport": true,
-        "detail": "torch.utils.data",
-        "documentation": {}
-    },
-    {
-        "label": "DataLoader",
-        "importPath": "torch.utils.data",
-        "description": "torch.utils.data",
-        "isExtraImport": true,
-        "detail": "torch.utils.data",
-        "documentation": {}
-    },
-    {
-        "label": "random_split",
-        "importPath": "torch.utils.data",
-        "description": "torch.utils.data",
-        "isExtraImport": true,
-        "detail": "torch.utils.data",
-        "documentation": {}
-    },
-    {
-        "label": "tqdm",
-        "importPath": "tqdm.auto",
-        "description": "tqdm.auto",
-        "isExtraImport": true,
-        "detail": "tqdm.auto",
         "documentation": {}
     },
     {
@@ -504,22 +487,6 @@
         "documentation": {}
     },
     {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "VisionTransformer",
-        "importPath": "timm.models.vision_transformer",
-        "description": "timm.models.vision_transformer",
-        "isExtraImport": true,
-        "detail": "timm.models.vision_transformer",
-        "documentation": {}
-    },
-    {
         "label": "VisionTransformer",
         "importPath": "timm.models.vision_transformer",
         "description": "timm.models.vision_transformer",
@@ -557,22 +524,6 @@
         "description": "skimage.transform",
         "isExtraImport": true,
         "detail": "skimage.transform",
-        "documentation": {}
-    },
-    {
-        "label": "resize",
-        "importPath": "skimage.transform",
-        "description": "skimage.transform",
-        "isExtraImport": true,
-        "detail": "skimage.transform",
-        "documentation": {}
-    },
-    {
-        "label": "sliding_window_view",
-        "importPath": "numpy.lib.stride_tricks",
-        "description": "numpy.lib.stride_tricks",
-        "isExtraImport": true,
-        "detail": "numpy.lib.stride_tricks",
         "documentation": {}
     },
     {
@@ -754,54 +705,11 @@
         "documentation": {}
     },
     {
-        "label": "pandas",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "pandas",
-        "description": "pandas",
-        "detail": "pandas",
-        "documentation": {}
-    },
-    {
-        "label": "matplotlib.pyplot",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "matplotlib.pyplot",
-        "description": "matplotlib.pyplot",
-        "detail": "matplotlib.pyplot",
-        "documentation": {}
-    },
-    {
-        "label": "draw_graph",
-        "importPath": "torchview",
-        "description": "torchview",
-        "isExtraImport": true,
-        "detail": "torchview",
-        "documentation": {}
-    },
-    {
-        "label": "Image",
-        "importPath": "PIL",
-        "description": "PIL",
-        "isExtraImport": true,
-        "detail": "PIL",
-        "documentation": {}
-    },
-    {
-        "label": "rasterio",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "rasterio",
-        "description": "rasterio",
-        "detail": "rasterio",
-        "documentation": {}
-    },
-    {
         "label": "CNNCfg",
         "kind": 6,
         "importPath": "src.cnn_yield.resnet_regressor",
         "description": "src.cnn_yield.resnet_regressor",
-        "peekOfCode": "class CNNCfg:\n    lstm:           bool  = False\n    lstm_hidden:    int   = 128\n    lstm_layers:    int   = 1\n    freeze_backbone:bool  = True\n    ckpt:           str   = \"BIFOLD-BigEarthNetv2-0/resnet50-s2-v0.2.0\"\n# ── model ───────────────────────────────────────────────────────\nclass ResNetYieldRegressor(nn.Module):\n    \"\"\"\n    Input  | (B,10,32,32)   or (B,T,10,32,32) if lstm=True",
+        "peekOfCode": "class CNNCfg:\n    lstm: bool = False\n    lstm_hidden: int = 128\n    lstm_layers: int = 3\n    freeze_backbone: bool = True\n    ckpt: str = \"BIFOLD-BigEarthNetv2-0/resnet50-s2-v0.2.0\"\n    head_hidden: int = 256\n    dropout: float = 0.2\n    @classmethod\n    def from_optuna_trial(cls, trial) -> \"CNNCfg\":",
         "detail": "src.cnn_yield.resnet_regressor",
         "documentation": {}
     },
@@ -846,7 +754,7 @@
         "kind": 6,
         "importPath": "src.vit_yield.training",
         "description": "src.vit_yield.training",
-        "peekOfCode": "class TrainCfg:\n    epochs:    int   = 50\n    lr:        float = 1e-3\n    batch:     int   = 32\n    patience:  int   = 5\n    clip_grad: float = 1.0\ndef train_model(\n    model: nn.Module,\n    train_X: np.ndarray,\n    train_y: np.ndarray,",
+        "peekOfCode": "class TrainCfg:\n    epochs:    int   = 50\n    lr:        float = 1e-3\n    batch:     int   = 32\n    patience:  int   = 10\n    clip_grad: float = 1.0\ndef train_model(\n    model: nn.Module,\n    train_X: np.ndarray,\n    train_y: np.ndarray,",
         "detail": "src.vit_yield.training",
         "documentation": {}
     },
@@ -873,7 +781,7 @@
         "kind": 2,
         "importPath": "src.vit_yield.training",
         "description": "src.vit_yield.training",
-        "peekOfCode": "def tune_resnet_hyperparams(\n    X: np.ndarray,\n    y: np.ndarray,\n    n_trials: int = 20,\n    device:   str = \"cuda\",\n) -> optuna.Study:\n    \"\"\"Optuna hyper-parameter tuning for ResNet model.\"\"\"\n    def objective(trial: optuna.Trial):\n        cfg_cnn = CNNCfg(\n            lstm=True,",
+        "peekOfCode": "def tune_resnet_hyperparams(\n    X: np.ndarray,\n    y: np.ndarray,\n    n_trials: int = 20,\n    device:   str = \"cuda\",\n) -> optuna.Study:\n    \"\"\"Optuna hyper-parameter tuning for ResNet model.\"\"\"\n    def objective(trial: optuna.Trial):\n        cfg_cnn = CNNCfg.from_optuna_trial(trial)\n        model = ResNetYieldRegressor(cfg_cnn)",
         "detail": "src.vit_yield.training",
         "documentation": {}
     },
@@ -882,7 +790,7 @@
         "kind": 6,
         "importPath": "src.vit_yield.vit_regressor",
         "description": "src.vit_yield.vit_regressor",
-        "peekOfCode": "class VitConfig:\n    img_size: int = 32\n    in_chans: int = 10\n    patch_size: int = 8\n    lstm: bool = False\n    lstm_hidden: int = 128\n    lstm_layers: int = 1\n    freeze_backbone: bool = True\n    ckpt: str = \"BIFOLD-BigEarthNetv2-0/vit_base_patch8_224-s2-v0.2.0\"\n# ---------------------------------------------------------------------",
+        "peekOfCode": "class VitConfig:\n    img_size: int = 32\n    in_chans: int = 10\n    patch_size: int = 8\n    lstm: bool = False\n    lstm_hidden: int = 128\n    lstm_layers: int = 3\n    freeze_backbone: bool = True\n    dropout: float = 0.2\n    ckpt: str = \"BIFOLD-BigEarthNetv2-0/vit_base_patch8_224-s2-v0.2.0\"",
         "detail": "src.vit_yield.vit_regressor",
         "documentation": {}
     },
@@ -918,7 +826,7 @@
         "kind": 2,
         "importPath": "src.data_util",
         "description": "src.data_util",
-        "peekOfCode": "def compute_metrics(y_true, y_pred):\n    return dict(rmse=rmse(y_true, y_pred),\n                mae=float(mean_absolute_error(y_true, y_pred)),\n                r2=float(r2_score(y_true, y_pred)))\ndef paired_bootstrap(y, p1, p2, n=1000):\n    idxs  = (resample(np.arange(len(y)), replace=True) for _ in range(n))\n    diff  = [rmse(y[i], p1[i]) - rmse(y[i], p2[i]) for i in idxs]\n    p_val = (np.sum(np.array(diff) > 0) + 1) / (n + 1)\n    return p_val, diff",
+        "peekOfCode": "def compute_metrics(y_true, y_pred):\n    return dict(rmse=rmse(y_true, y_pred),\n                mae=float(mean_absolute_error(y_true, y_pred)),\n                r2=float(r2_score(y_true, y_pred)))\ndef paired_bootstrap(y, p1, p2, n=1000):\n    idxs  = (resample(np.arange(len(y)), replace=True) for _ in range(n))\n    diff  = [rmse(y[i], p1[i]) - rmse(y[i], p2[i]) for i in idxs]\n    p_val = (np.sum(np.array(diff) > 0) + 1) / (n + 1)\n    return p_val, diff\n# ---------------------------------------------------------------------",
         "detail": "src.data_util",
         "documentation": {}
     },
@@ -927,7 +835,7 @@
         "kind": 2,
         "importPath": "src.data_util",
         "description": "src.data_util",
-        "peekOfCode": "def paired_bootstrap(y, p1, p2, n=1000):\n    idxs  = (resample(np.arange(len(y)), replace=True) for _ in range(n))\n    diff  = [rmse(y[i], p1[i]) - rmse(y[i], p2[i]) for i in idxs]\n    p_val = (np.sum(np.array(diff) > 0) + 1) / (n + 1)\n    return p_val, diff",
+        "peekOfCode": "def paired_bootstrap(y, p1, p2, n=1000):\n    idxs  = (resample(np.arange(len(y)), replace=True) for _ in range(n))\n    diff  = [rmse(y[i], p1[i]) - rmse(y[i], p2[i]) for i in idxs]\n    p_val = (np.sum(np.array(diff) > 0) + 1) / (n + 1)\n    return p_val, diff\n# ---------------------------------------------------------------------\n# vegetation-index helper (vectorised, Torch)\n# ---------------------------------------------------------------------\ndef _veg_indices(x: torch.Tensor) -> torch.Tensor:\n    \"\"\"",
         "detail": "src.data_util",
         "documentation": {}
     },
@@ -972,7 +880,16 @@
         "kind": 6,
         "importPath": "src.main",
         "description": "src.main",
-        "peekOfCode": "class CLIConfig:\n    model:        str\n    tune:         bool = False\n    csv:          Path = Path(\"/home/matthew/Projects/comparative-yield-models/Yield_GEE_S2_ByField/field_images_grouped.csv\")\n    data_root:    Path = Path(\"/home/matthew/Projects/comparative-yield-models/\")\n    temp_csv:     Path = Path(\"/home/matthew/Projects/comparative-yield-models/Yield_GEE_TEMP_ByField/field_temps.csv\")\n    soil_root:  Path = Path(\"/home/matthew/Projects/comparative-yield-models/Yield_GEE_SoilOrg/\")\n# ─────────────────────────────────────────────────────────────\n# 2│ Argument-parser that builds CLIConfig\n#    (mutually-exclusive flags, automatic help formatting)",
+        "peekOfCode": "class CLIConfig:\n    model:        str\n    tune:         bool = False\n    csv:          Path = Path(\"/home/matthew/Projects/comparative-yield-models/Yield_GEE_S2_ByField/field_images_grouped.csv\")\n    data_root:    Path = Path(\"/home/matthew/Projects/comparative-yield-models/\")\n    temp_csv:     Path = Path(\"/home/matthew/Projects/comparative-yield-models/Yield_GEE_TEMP_ByField/field_temps.csv\")\n    soil_root:    Path = Path(\"/home/matthew/Projects/comparative-yield-models/Yield_GEE_SoilOrg/\")\n    device:       str  = \"cuda\"   # add a quick switch for CPU timing\n# ─────────────────────────────────────────────────────────────\n# 2│ Argument-parser that builds CLIConfig",
+        "detail": "src.main",
+        "documentation": {}
+    },
+    {
+        "label": "avg_infer_time_ms",
+        "kind": 2,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "def avg_infer_time_ms(model, X_val: np.ndarray, *, device: str = \"cuda\", batch: int = 64) -> float:\n    \"\"\"Return mean milliseconds per sample for forward passes on *X_val*.\n    Handles PyTorch modules and XGBoost Booster objects.  The caller must\n    ensure the model is already on the desired device.\n    \"\"\"\n    n = len(X_val)\n    # ── XGBoost (CPU‑only) ───────────────────────────────\n    if isinstance(model, xgb.Booster):\n        dm = xgb.DMatrix(X_val)\n        t0 = time.perf_counter()",
         "detail": "src.main",
         "documentation": {}
     },
@@ -981,7 +898,7 @@
         "kind": 2,
         "importPath": "src.main",
         "description": "src.main",
-        "peekOfCode": "def parse_args() -> CLIConfig:\n    parser = argparse.ArgumentParser(\n        formatter_class=argparse.RawDescriptionHelpFormatter,\n        description=textwrap.dedent(\n            \"\"\"\\\n            Run a single model (optionally with Optuna tuning) on all\n            leave-one-field-out splits and print per-fold metrics.\n            \"\"\"),\n    )\n    parser.add_argument(",
+        "peekOfCode": "def parse_args() -> CLIConfig:\n    parser = argparse.ArgumentParser(\n        formatter_class=argparse.RawDescriptionHelpFormatter,\n        description=textwrap.dedent(\n            \"\"\"\\\n            Train a single model (optionally with Optuna tuning) on all\n            leave‑one‑field‑out splits, report per‑fold metrics **and**\n            average inference time (ms per sample).\n            \"\"\"),\n    )",
         "detail": "src.main",
         "documentation": {}
     },
@@ -990,7 +907,7 @@
         "kind": 2,
         "importPath": "src.main",
         "description": "src.main",
-        "peekOfCode": "def build_and_train(cfg: CLIConfig,\n                    X_tr: np.ndarray, y_tr: np.ndarray,\n                    X_va: np.ndarray, y_va: np.ndarray):\n    \"\"\"Return trained model + metrics dict.\"\"\"\n    # ---------- Vision-Transformer family ----------\n    if cfg.model in {\"vit\", \"vit_lstm\"}:\n        vit_cfg = VitConfig(lstm=cfg.model == \"vit_lstm\")\n        if cfg.tune and cfg.model == \"vit_lstm\":\n            best = tune_hyperparams(X_tr, y_tr, 20)\n            vit_cfg = VitConfig(lstm_hidden=best.params['hidden'], lstm_layers=best.params['layers'], lstm=True)      # Optuna -> dataclass",
+        "peekOfCode": "def build_and_train(cfg: CLIConfig,\n                    X_tr: np.ndarray, y_tr: np.ndarray,\n                    X_va: np.ndarray, y_va: np.ndarray):\n    \"\"\"Return trained model + metrics dict (RMSE, MAE, R²).\"\"\"\n    # ---------- Vision‑Transformer family ----------\n    if cfg.model in {\"vit\", \"vit_lstm\"}:\n        vit_cfg = VitConfig(lstm=cfg.model == \"vit_lstm\")\n        if cfg.tune and cfg.model == \"vit_lstm\":\n            best = tune_hyperparams(X_tr, y_tr, 20)\n            vit_cfg = VitConfig(lstm_hidden=best.params[\"hidden\"],",
         "detail": "src.main",
         "documentation": {}
     },
@@ -1037,285 +954,6 @@
         "description": "src.xgb_utils",
         "peekOfCode": "BASE_PARAMS = dict(\n    objective=\"reg:squarederror\",\n    eval_metric=\"rmse\",\n    tree_method= \"hist\",#\"gpu_hist\" if _gpu_available() else \"hist\",\n    learning_rate=0.05,\n    max_depth=6,\n    subsample=0.8,\n    colsample_bytree=0.8,\n    n_estimators=800,\n)",
         "detail": "src.xgb_utils",
-        "documentation": {}
-    },
-    {
-        "label": "PatchDataset",
-        "kind": 6,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "class PatchDataset(Dataset):\n    def __init__(self, X, y):\n        # X : (N, 32, 32, 10)  -->  (N, 10, 32, 32)\n        self.X = torch.tensor(X, dtype=torch.float32)\n        self.y = torch.tensor(y, dtype=torch.float32).unsqueeze(1)\n    def __len__(self): return self.X.shape[0]\n    def __getitem__(self, idx):\n        return self.X[idx], self.y[idx]\nfull_ds   = PatchDataset(X_train, y_train)\ntest_ds   = PatchDataset(X_test,  y_test)",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "filter_by_date_range",
-        "kind": 2,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "def filter_by_date_range(df, start_date, end_date):\n    \"\"\"\n    Filter the DataFrame to include only rows where the date range overlaps with [start_date, end_date].\n    Dates should be provided as strings in 'YYYYMMDD' format.\n    \"\"\"\n    # Ensure date columns are strings\n    df = df.copy()\n    df['start_date'] = df['start_date'].astype(str)\n    df['end_date'] = df['end_date'].astype(str)\n    # Filter for overlap",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "upscale_if_needed",
-        "kind": 2,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "def upscale_if_needed(img: np.ndarray, patch: int = PATCH) -> np.ndarray:\n    \"\"\"Upscale (bands, H, W) to at least patch*patch via bilinear resize.\"\"\"\n    b, h, w = img.shape\n    if h >= patch and w >= patch:\n        return img\n    scale = max(patch / h, patch / w)\n    new_h = int(np.ceil(h * scale))\n    new_w = int(np.ceil(w * scale))\n    up = np.empty((b, new_h, new_w), dtype=img.dtype)\n    for i in range(b):",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "extract_patches",
-        "kind": 2,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "def extract_patches(img: np.ndarray,\n                    patch: int = PATCH,\n                    stride: int = STRIDE,\n                    thresh: float = VALID_THRESHOLD) -> np.ndarray:\n    \"\"\"\n    img: (bands, H, W) array.\n    Returns patches (N, bands, patch, patch) that have ≥ thresh valid pixels.\n    \"\"\"\n    img = upscale_if_needed(img, patch)\n    b, h, w = img.shape",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "rows_to_arrays",
-        "kind": 2,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "def rows_to_arrays(rows):\n    \"\"\"Load rasters → extract patches → stack X, y arrays.\"\"\"\n    X_list, y_list = [], []\n    for _, row in tqdm(rows.iterrows(), total=len(rows), desc=\"Reading\"):\n        img_path = data_path / row['image_path'].replace('./Yield_GEE_S2_ByField/', '')\n        try:\n            with rasterio.open(img_path) as src:\n                img = src.read(list(range(2, 12)))    # bands 2-11\n                img = np.nan_to_num(img, nan=0.0)\n                patches = extract_patches(img)",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "data_path",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "data_path = \"/home/matthew/Documents/yield/imagery/Yield_GEE_S2_ByField/\"\ndevice = torch.device(\"cuda\" if torch.cuda.is_available() else \"cpu\")\n# %%\n# ------------------------------------------------------------\n# 1. load pretrained wrapper  (ViT-B/8, 13-band Sentinel-2)\n# ------------------------------------------------------------\nckpt  = \"BIFOLD-BigEarthNetv2-0/vit_base_patch8_224-s2-v0.2.0\"\nbem   = BigEarthNetv2_0_ImageClassifier.from_pretrained(ckpt)\nold_vit = next(m for m in bem.modules()\n               if isinstance(m, VisionTransformer))      # find ViT inside wrapper",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "device",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "device = torch.device(\"cuda\" if torch.cuda.is_available() else \"cpu\")\n# %%\n# ------------------------------------------------------------\n# 1. load pretrained wrapper  (ViT-B/8, 13-band Sentinel-2)\n# ------------------------------------------------------------\nckpt  = \"BIFOLD-BigEarthNetv2-0/vit_base_patch8_224-s2-v0.2.0\"\nbem   = BigEarthNetv2_0_ImageClassifier.from_pretrained(ckpt)\nold_vit = next(m for m in bem.modules()\n               if isinstance(m, VisionTransformer))      # find ViT inside wrapper\n# ------------------------------------------------------------",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "old_vit",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "old_vit = next(m for m in bem.modules()\n               if isinstance(m, VisionTransformer))      # find ViT inside wrapper\n# ------------------------------------------------------------\n# 2. build a NEW ViT that accepts 32×32 and 10 channels\n# ------------------------------------------------------------\npatch      = old_vit.patch_embed.patch_size[0]           # 8\nembed_dim  = old_vit.embed_dim\ndepth      = len(old_vit.blocks)\nnum_heads  = old_vit.blocks[0].attn.num_heads\nmlp_ratio  = old_vit.mlp_ratio if hasattr(old_vit, \"mlp_ratio\") else 4",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "new_vit",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "new_vit = VisionTransformer(\n    img_size=32, patch_size=patch, in_chans=10,\n    embed_dim=embed_dim, depth=depth, num_heads=num_heads,\n    mlp_ratio=mlp_ratio, qkv_bias=qkv_bias, num_classes=0,\n)\n# ------------------------------------------------------------\n# 3. create a *filtered* state-dict  (drop pos-embed & patch-embed)\n# ------------------------------------------------------------\nstate = old_vit.state_dict()\nstate.pop(\"pos_embed\")                            # will replace later",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "state",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "state = old_vit.state_dict()\nstate.pop(\"pos_embed\")                            # will replace later\nstate.pop(\"patch_embed.proj.weight\")              # channel mismatch 13→10\nif \"patch_embed.proj.bias\" in state:              # bias size identical; keep if exists\n    pass\nmsg = new_vit.load_state_dict(state, strict=False)  # loads everything that still matches\nprint(\"Loaded state-dict:\", msg.missing_keys)      # should be only pos_embed & proj.weight\n# ------------------------------------------------------------\n# 4. transfer & resize the positional embeddings (28×28 → 4×4)\n# ------------------------------------------------------------",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "msg",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "msg = new_vit.load_state_dict(state, strict=False)  # loads everything that still matches\nprint(\"Loaded state-dict:\", msg.missing_keys)      # should be only pos_embed & proj.weight\n# ------------------------------------------------------------\n# 4. transfer & resize the positional embeddings (28×28 → 4×4)\n# ------------------------------------------------------------\nwith torch.no_grad():\n    cls_tok, grid = old_vit.pos_embed[:, :1], old_vit.pos_embed[:, 1:]\n    old_side = int(grid.shape[1] ** 0.5)          # 28\n    new_side = 32 // patch                        # 4\n    grid = grid.reshape(1, old_side, old_side, -1).permute(0, 3, 1, 2)",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "head",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "head = nn.Sequential(\n    nn.LayerNorm(embed_dim),\n    nn.Linear(embed_dim, 256),\n    nn.ReLU(),\n    nn.Dropout(0.2),\n    nn.Linear(256, 1)\n)\nmodel = nn.Sequential(new_vit, head).to(device)\nfor n, p in model.named_parameters():\n    p.requires_grad = n.startswith(\"0.patch_embed\") or n.startswith(\"1\")",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "model",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "model = nn.Sequential(new_vit, head).to(device)\nfor n, p in model.named_parameters():\n    p.requires_grad = n.startswith(\"0.patch_embed\") or n.startswith(\"1\")\n# ------------------------------------------------------------\n# 7. sanity forward\n# ------------------------------------------------------------\ndummy = torch.randn(4, 10, 32, 32, device=device)\nprint(\"Output shape:\", model(dummy).shape)     # -> torch.Size([4, 1])\nprint(\"Trainable params:\",\n      sum(p.numel() for p in model.parameters() if p.requires_grad))",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "dummy",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "dummy = torch.randn(4, 10, 32, 32, device=device)\nprint(\"Output shape:\", model(dummy).shape)     # -> torch.Size([4, 1])\nprint(\"Trainable params:\",\n      sum(p.numel() for p in model.parameters() if p.requires_grad))\n# %%\n# Visualize the model architecture\nmodel_graph = draw_graph(model, input_size=(1, 10, 32, 32), expand_nested=False)\nmodel_graph.visual_graph\n# %%\n# Define the DataFrame 'df'",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "model_graph",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "model_graph = draw_graph(model, input_size=(1, 10, 32, 32), expand_nested=False)\nmodel_graph.visual_graph\n# %%\n# Define the DataFrame 'df'\ndf = pd.read_csv(data_path + 'field_images.csv')\ndf.head()\n# %%\n# Set up matplotlib figure and axes for 3 images\nfig, axes = plt.subplots(1, 3, figsize=(15, 5))\n# Select 3 random indices from the DataFrame",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "df",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "df = pd.read_csv(data_path + 'field_images.csv')\ndf.head()\n# %%\n# Set up matplotlib figure and axes for 3 images\nfig, axes = plt.subplots(1, 3, figsize=(15, 5))\n# Select 3 random indices from the DataFrame\nrandom_indices = np.random.choice(df.index, size=3, replace=False)\nmax_height = 0\nmax_width = 0\nmax_bands = 0",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "random_indices",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "random_indices = np.random.choice(df.index, size=3, replace=False)\nmax_height = 0\nmax_width = 0\nmax_bands = 0\n# First pass: determine max dimensions\nfor img_path in df['image_path']:\n    img_path = data_path + img_path.replace('./Yield_GEE_S2_ByField/', '')\n    with rasterio.open(img_path) as src:\n        img_array = src.read()\n        max_bands = max(max_bands, img_array.shape[0])",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "max_height",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "max_height = 0\nmax_width = 0\nmax_bands = 0\n# First pass: determine max dimensions\nfor img_path in df['image_path']:\n    img_path = data_path + img_path.replace('./Yield_GEE_S2_ByField/', '')\n    with rasterio.open(img_path) as src:\n        img_array = src.read()\n        max_bands = max(max_bands, img_array.shape[0])\n        max_height = max(max_height, img_array.shape[1])",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "max_width",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "max_width = 0\nmax_bands = 0\n# First pass: determine max dimensions\nfor img_path in df['image_path']:\n    img_path = data_path + img_path.replace('./Yield_GEE_S2_ByField/', '')\n    with rasterio.open(img_path) as src:\n        img_array = src.read()\n        max_bands = max(max_bands, img_array.shape[0])\n        max_height = max(max_height, img_array.shape[1])\n        max_width = max(max_width, img_array.shape[2])",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "max_bands",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "max_bands = 0\n# First pass: determine max dimensions\nfor img_path in df['image_path']:\n    img_path = data_path + img_path.replace('./Yield_GEE_S2_ByField/', '')\n    with rasterio.open(img_path) as src:\n        img_array = src.read()\n        max_bands = max(max_bands, img_array.shape[0])\n        max_height = max(max_height, img_array.shape[1])\n        max_width = max(max_width, img_array.shape[2])\nprint(f'Max Bands: {max_bands}, Max Height: {max_height}, Max Width: {max_width}')",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "STRIDE",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "STRIDE = 16         # stride (pixels)\nVALID_THRESHOLD = 0.60   # ≥60 % non-nodata pixels\nBANDS  = 10         # we’ll grab bands 2-11 (index 1:11)\n# ------------------- DATA SPLIT ----------------\nnp.random.seed(42)\ndf = filter_by_date_range(df, '20241215', '20250231')  # filter by date range\nfields      = df['field_name'].unique()\ntest_field  = np.random.choice(fields)\ntrain_rows  = df[df['field_name'] != test_field]\ntest_rows   = df[df['field_name'] == test_field]",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "VALID_THRESHOLD",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "VALID_THRESHOLD = 0.60   # ≥60 % non-nodata pixels\nBANDS  = 10         # we’ll grab bands 2-11 (index 1:11)\n# ------------------- DATA SPLIT ----------------\nnp.random.seed(42)\ndf = filter_by_date_range(df, '20241215', '20250231')  # filter by date range\nfields      = df['field_name'].unique()\ntest_field  = np.random.choice(fields)\ntrain_rows  = df[df['field_name'] != test_field]\ntest_rows   = df[df['field_name'] == test_field]\ndata_path = Path(data_path)  # ensure Path object",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "df",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "df = filter_by_date_range(df, '20241215', '20250231')  # filter by date range\nfields      = df['field_name'].unique()\ntest_field  = np.random.choice(fields)\ntrain_rows  = df[df['field_name'] != test_field]\ntest_rows   = df[df['field_name'] == test_field]\ndata_path = Path(data_path)  # ensure Path object\n# ------------------- HELPERS -------------------\ndef upscale_if_needed(img: np.ndarray, patch: int = PATCH) -> np.ndarray:\n    \"\"\"Upscale (bands, H, W) to at least patch*patch via bilinear resize.\"\"\"\n    b, h, w = img.shape",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "data_path",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "data_path = Path(data_path)  # ensure Path object\n# ------------------- HELPERS -------------------\ndef upscale_if_needed(img: np.ndarray, patch: int = PATCH) -> np.ndarray:\n    \"\"\"Upscale (bands, H, W) to at least patch*patch via bilinear resize.\"\"\"\n    b, h, w = img.shape\n    if h >= patch and w >= patch:\n        return img\n    scale = max(patch / h, patch / w)\n    new_h = int(np.ceil(h * scale))\n    new_w = int(np.ceil(w * scale))",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "band_mean",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "band_mean = X_train.mean(axis=(0, 2, 3), keepdims=True)\nband_std  = X_train.std(axis=(0, 2, 3), keepdims=True) + 1e-6\nX_train = (X_train - band_mean) / band_std\nX_test  = (X_test  - band_mean) / band_std\n# ------------------- INFO ----------------------\nprint(f\"Train patches : {X_train.shape},  yields {y_train.shape}\")\nprint(f\"Test  patches : {X_test.shape},   yields {y_test.shape}\")\nprint(f\"Test field    : {test_field}\")\nprint(f\"Band mean: {band_mean},  std: {band_std}\")\n# %%",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "X_train",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "X_train = (X_train - band_mean) / band_std\nX_test  = (X_test  - band_mean) / band_std\n# ------------------- INFO ----------------------\nprint(f\"Train patches : {X_train.shape},  yields {y_train.shape}\")\nprint(f\"Test  patches : {X_test.shape},   yields {y_test.shape}\")\nprint(f\"Test field    : {test_field}\")\nprint(f\"Band mean: {band_mean},  std: {band_std}\")\n# %%\n# ---------- 2.  Dataset & DataLoader ----------\nclass PatchDataset(Dataset):",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "train_len",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "train_len = int(0.9 * len(full_ds))\nval_len   = len(full_ds) - train_len\ntrain_ds, val_ds = random_split(full_ds, [train_len, val_len])\ntrain_loader = DataLoader(train_ds, batch_size=32, shuffle=True, pin_memory=True)\nval_loader   = DataLoader(val_ds,   batch_size=32, shuffle=False, pin_memory=True)\n# ---------- 3.  Optimiser & scheduler ----------\ndevice = torch.device('cuda' if torch.cuda.is_available() else 'cpu')\nmodel.to(device)\noptimiser = optim.AdamW(filter(lambda p: p.requires_grad, model.parameters()), lr=1e-4, weight_decay=1e-2)\nscheduler = optim.lr_scheduler.CosineAnnealingLR(optimiser, T_max=10)",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "train_loader",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "train_loader = DataLoader(train_ds, batch_size=32, shuffle=True, pin_memory=True)\nval_loader   = DataLoader(val_ds,   batch_size=32, shuffle=False, pin_memory=True)\n# ---------- 3.  Optimiser & scheduler ----------\ndevice = torch.device('cuda' if torch.cuda.is_available() else 'cpu')\nmodel.to(device)\noptimiser = optim.AdamW(filter(lambda p: p.requires_grad, model.parameters()), lr=1e-4, weight_decay=1e-2)\nscheduler = optim.lr_scheduler.CosineAnnealingLR(optimiser, T_max=10)\nloss_fn   = nn.MSELoss()\n# ---------- 4.  Training loop ----------\nepochs, clip = 10, 1.0",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "device",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')\nmodel.to(device)\noptimiser = optim.AdamW(filter(lambda p: p.requires_grad, model.parameters()), lr=1e-4, weight_decay=1e-2)\nscheduler = optim.lr_scheduler.CosineAnnealingLR(optimiser, T_max=10)\nloss_fn   = nn.MSELoss()\n# ---------- 4.  Training loop ----------\nepochs, clip = 10, 1.0\nfor epoch in range(1, epochs + 1):\n    model.train()\n    train_loss = 0.0",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "optimiser",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "optimiser = optim.AdamW(filter(lambda p: p.requires_grad, model.parameters()), lr=1e-4, weight_decay=1e-2)\nscheduler = optim.lr_scheduler.CosineAnnealingLR(optimiser, T_max=10)\nloss_fn   = nn.MSELoss()\n# ---------- 4.  Training loop ----------\nepochs, clip = 10, 1.0\nfor epoch in range(1, epochs + 1):\n    model.train()\n    train_loss = 0.0\n    for xb, yb in tqdm(train_loader, desc=f\"Epoch {epoch}\"):\n        xb, yb = xb.to(device), yb.to(device)",
-        "detail": "Untitled-1",
-        "documentation": {}
-    },
-    {
-        "label": "scheduler",
-        "kind": 5,
-        "importPath": "Untitled-1",
-        "description": "Untitled-1",
-        "peekOfCode": "scheduler = optim.lr_scheduler.CosineAnnealingLR(optimiser, T_max=10)\nloss_fn   = nn.MSELoss()\n# ---------- 4.  Training loop ----------\nepochs, clip = 10, 1.0\nfor epoch in range(1, epochs + 1):\n    model.train()\n    train_loss = 0.0\n    for xb, yb in tqdm(train_loader, desc=f\"Epoch {epoch}\"):\n        xb, yb = xb.to(device), yb.to(device)\n        preds   = model(xb)",
-        "detail": "Untitled-1",
         "documentation": {}
     }
 ]

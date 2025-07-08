@@ -1,0 +1,43 @@
+# Core scientific stack
+numpy
+pandas
+scikit-learn
+scipy
+matplotlib
+seaborn
+
+# PyTorch and related
+torch
+torchvision
+torchview
+timm
+
+# XGBoost and Optuna
+gxgboost
+optuna
+
+# Raster and image processing
+rasterio
+Pillow
+scikit-image
+
+# Progress bars
+tqdm
+
+# Hugging Face
+transformers
+
+# Project-specific
+configilm
+# If using lightning wrappers
+pytorch-lightning
+
+# For Jupyter/Notebook work
+ipykernel
+jupyter
+
+# For reproducibility
+python-dotenv
+
+# If using the Hugging Face Hub
+huggingface_hub

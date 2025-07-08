@@ -5,6 +5,8 @@ from typing import Dict
 import numpy as np
 from sklearn.metrics import root_mean_squared_error, mean_absolute_error, r2_score
 
+np.random.seed(42)     # for reproducibility
+
 
 def compute_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> Dict[str, float]:
     """Return RMSE, MAE and R² in one dict (ready for DataFrame())."""

@@ -5,6 +5,9 @@ import numpy as np, optuna, xgboost as xgb
 from sklearn.model_selection import train_test_split
 from metrics import compute_metrics           # <- your existing helper
 
+np.random.seed(42)     # for reproducibility
+xgb.set_config(verbosity=0)  # suppress XGBoost warnings
+
 # --- utils ----------------------------------------------------
 def _gpu_available() -> bool:
     """True if xgboost was compiled with CUDA and at least one device exists."""
