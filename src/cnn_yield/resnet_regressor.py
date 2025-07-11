@@ -16,7 +16,7 @@ class CNNCfg:
     lstm_hidden: int = 128
     lstm_layers: int = 3
     freeze_backbone: bool = True
-    ckpt: str = "BIFOLD-BigEarthNetv2-0/resnet50-s2-v0.2.0"
+    ckpt: str = "BIFOLD-BigEarthNetv2-0/resnet101-s2-v0.2.0"
     head_hidden: int = 256
     dropout: float = 0.2
 

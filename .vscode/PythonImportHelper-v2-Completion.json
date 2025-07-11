@@ -709,7 +709,7 @@
         "kind": 6,
         "importPath": "src.cnn_yield.resnet_regressor",
         "description": "src.cnn_yield.resnet_regressor",
-        "peekOfCode": "class CNNCfg:\n    lstm: bool = False\n    lstm_hidden: int = 128\n    lstm_layers: int = 3\n    freeze_backbone: bool = True\n    ckpt: str = \"BIFOLD-BigEarthNetv2-0/resnet50-s2-v0.2.0\"\n    head_hidden: int = 256\n    dropout: float = 0.2\n    @classmethod\n    def from_optuna_trial(cls, trial) -> \"CNNCfg\":",
+        "peekOfCode": "class CNNCfg:\n    lstm: bool = False\n    lstm_hidden: int = 128\n    lstm_layers: int = 3\n    freeze_backbone: bool = True\n    ckpt: str = \"BIFOLD-BigEarthNetv2-0/resnet101-s2-v0.2.0\"\n    head_hidden: int = 256\n    dropout: float = 0.2\n    @classmethod\n    def from_optuna_trial(cls, trial) -> \"CNNCfg\":",
         "detail": "src.cnn_yield.resnet_regressor",
         "documentation": {}
     },
